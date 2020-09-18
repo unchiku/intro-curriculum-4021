@@ -278,19 +278,23 @@ describe('/schedules/:scheduleId?delete=1', () => {
             const p1 = Comment.findAll({
               where: { scheduleId: scheduleId }
             }).then((comments) => {
+              assert.strictEqual(!comments.length, true);
               // TODO テストを実装
             });
             const p2 = Availability.findAll({
               where: { scheduleId: scheduleId }
             }).then((availabilities) => {
+              assert.strictEqual(!availabilities.length, true);
               // TODO テストを実装
             });
             const p3 = Candidate.findAll({
               where: { scheduleId: scheduleId }
             }).then((candidates) => {
+              assert.strictEqual(!candidates.length, true);
               // TODO テストを実装
             });
             const p4 = Schedule.findByPk(scheduleId).then((schedule) => {
+              assert.strictEqual(!schedule, true);
               // TODO テストを実装
             });
             Promise.all([p1, p2, p3, p4]).then(() => {
